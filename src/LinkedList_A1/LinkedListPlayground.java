@@ -71,6 +71,10 @@ public class LinkedListPlayground {
     L.insert(3.4,0);
     L.insert(3.5,1);
     L.insert(3.67,2);
+    System.out.println(L.get(0));
+    System.out.println(L.get(1));
+    System.out.println(L.get(2));
+   // System.out.println(L.get(3));
     L.remove(0);
     System.out.println(L.size());
     printList(L);
