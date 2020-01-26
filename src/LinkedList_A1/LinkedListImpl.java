@@ -43,40 +43,40 @@ public class LinkedListImpl implements LIST_Interface {
 			headCell = new Node(elt);
 			headCell.next = null;
 			headCell.prev = null;
-		}
-		else if(index == 0) {
+			lastCell = headCell;
+		} else if (index == 0) {
 			Node newNode = new Node(elt);
 			newNode.next = headCell;
 			newNode.prev = null;
 			headCell.prev = newNode;
 			headCell = newNode;
-		}
-		else if(index == numElts) {
+		} else if (index == numElts) {
 			Node newNode = new Node(elt);
 			Node lastCell = headCell;
 			newNode.next = null;
-			while(lastCell.next != null) { 
-			      lastCell = lastCell.next;
-			    }
+			while (lastCell.next != null) {
+				lastCell = lastCell.next;
+			}
 			lastCell.next = newNode;
 			newNode.prev = lastCell;
-			lastCell = newNode;
-		}
-		else {
+		} else {
 			Node curr = headCell;
 			for (int i = 0; i < index; i++) {
 				curr = curr.next;
 			}
 			Node inst = new Node(elt);
 			Node prev = curr.prev;
-			inst.next = prev.next;//WHEN INSERTING at 0, there is not prev.next quantity dum dum
+			inst.next = prev.next;// WHEN INSERTING at 0, there is not prev.next quantity dum dum
 			prev.next = inst;
 			inst.prev = prev;
-			if(inst.next != null) {
+			if (inst.next != null) {
 				inst.next.prev = inst;
 			}
-			
-
+		}
+		// Following code; repositions last cell:
+		lastCell = headCell;
+		while (lastCell.next != null) {
+			lastCell = lastCell.next;
 		}
 		numElts++;// Need to add to numElts when item is added
 		return true;
@@ -92,10 +92,30 @@ public class LinkedListImpl implements LIST_Interface {
 
 	@Override
 	public boolean remove(int index) {
-		// TODO Auto-generated method stub
+		if (index > numElts) {
+			return false;
+		}
+		// TODO add condition for removing from end and from front
+		if (index == 0) {
+			headCell = headCell.next;
+			headCell.prev = null;
+		}
+		else if (index == numElts) {
+			while (lastCell.next.next != null) {
+				lastCell = lastCell.next;
+			}
+			lastCell.next = null;
+		} else {
+			Node curr = headCell;
+			for (int i = 0; i < index; i++) {
+				curr = curr.next;
+			}
+			curr.prev.next = curr.next;
+			curr.next.prev = curr.prev;
 
+		}
 		numElts--;// Need to remove from numElts when item is removed
-		return false;
+		return true;
 	}
 
 	@Override
