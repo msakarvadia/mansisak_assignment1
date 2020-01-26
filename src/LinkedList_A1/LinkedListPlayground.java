@@ -41,16 +41,28 @@ public class LinkedListPlayground {
     System.out.println("size: " + L.size());
     L.remove(3);
     printList(L);
-    System.out.println("size: " +L.size());
+    System.out.println("line 44 size: " +L.size());
     L.clear();
-    L.insert(3.4, 0);
-    L.insert(3.5, 0);
-    L.insert(3.67, 1);
-    L.insert(3.357, 0);
-    L.insert(3.333, 3);
-    L.remove(0);
-    System.out.println("size: " +L.size());
     printList(L);
+    L.insert(3.4, 0);
+    printList(L);
+    L.insert(3.5, 0);
+    printList(L);
+    L.insert(3.67, 1);
+    printList(L);
+    L.insert(3.357, 0);
+    printList(L);
+    L.insert(3.333, 3);
+    printList(L);
+    L.remove(0);
+    printList(L);
+    L.remove(2);
+    printList(L);
+    System.out.println("size: " + L.size());
+    L.remove(2);
+    printList(L);
+    System.out.println("end test 1: size: " +L.size());
+    
   }
 
   public static void test2(){

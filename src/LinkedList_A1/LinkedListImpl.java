@@ -100,11 +100,11 @@ public class LinkedListImpl implements LIST_Interface {
 			headCell = headCell.next;
 			headCell.prev = null;
 		}
-		else if (index == numElts) {
-			while (lastCell.next.next != null) {
+		else if (index+1 == numElts) {
+			while (lastCell.next != null) {
 				lastCell = lastCell.next;
 			}
-			lastCell.next = null;
+			lastCell.prev = null;
 		} else {
 			Node curr = headCell;
 			for (int i = 0; i < index; i++) {
