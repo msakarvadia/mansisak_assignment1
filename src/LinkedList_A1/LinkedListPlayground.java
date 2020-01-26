@@ -16,23 +16,28 @@ public class LinkedListPlayground {
   public static void test1(){
     // example test cases
     LinkedListImpl L= new LinkedListImpl();
-    System.out.println(L.isEmpty());
+    System.out.println("is empty: " + L.isEmpty());
     printList(L);
     L.clear();
-    System.out.println(L.isEmpty());
+    System.out.println("is empty: " + L.isEmpty());
     printList(L);
     L.insert(3.3,0);
-    System.out.println(L.isEmpty());
+    System.out.println("is empty: " + L.isEmpty());
     printList(L);
     L.insert(3.4, 0);
+    System.out.println("size: " + L.size());
+    printList(L);
     L.insert(3.5, 0);
+    printList(L);
+    System.out.println("size: " + L.size());
     L.insert(3.67, 1);
     L.insert(3.357, 0);
     L.insert(3.333, 4);
-    System.out.println(L.size());
+    L.insert(5, 6);
+    System.out.println("size: " + L.size());
     printList(L);
     L.remove(3);
-    System.out.println(L.size());
+    System.out.println("size: " +L.size());
     printList(L);
     L.clear();
     L.insert(3.4, 0);
@@ -41,7 +46,7 @@ public class LinkedListPlayground {
     L.insert(3.357, 0);
     L.insert(3.333, 3);
     L.remove(0);
-    System.out.println(L.size());
+    System.out.println("size: " +L.size());
     printList(L);
   }
 
