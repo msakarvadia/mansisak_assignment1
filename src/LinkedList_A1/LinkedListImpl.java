@@ -33,10 +33,7 @@ public class LinkedListImpl implements LIST_Interface {
 
 	@Override
 	public boolean insert(double elt, int index) {
-		if (index > numElts) {
-			return false;
-		}
-		if (index < 0) {
+		if (index > numElts || index < 0) {
 			return false;
 		}
 		if (numElts == 0 && index == 0) {
@@ -85,22 +82,42 @@ public class LinkedListImpl implements LIST_Interface {
 	@Override
 	public boolean insort(double elt) {
 		// TODO Auto-generated method stub
-
-		numElts++;// Need to add to numElts when item is added
-		return false;
+		if (headCell.data >= elt) {
+			this.insert(elt, 0);
+		}
+		else {
+			Node curr = headCell;
+			while (curr.next != null) {
+				if(curr.next.data >= elt && curr.data < elt) {
+					Node inst = new Node(elt);
+					Node prev = curr;
+					inst.next = curr.next;
+					prev.next = inst;
+					inst.prev = prev;
+					if (inst.next != null) {
+						inst.next.prev = inst;
+					}
+					numElts++;
+					return true;
+				}
+				curr = curr.next;
+			}
+			this.insert(elt, numElts);
+		}
+		// Need to add to numElts when item is added
+		return true;
 	}
 
 	@Override
 	public boolean remove(int index) {
-		if (index > numElts) {
+		if (index > numElts || index < 0) {
 			return false;
 		}
 		// TODO add condition for removing from end and from front
 		if (index == 0) {
 			headCell = headCell.next;
 			headCell.prev = null;
-		}
-		else if (index+1 == numElts) {
+		} else if (index + 1 == numElts) {
 			while (lastCell.next != null) {
 				lastCell = lastCell.next;
 			}
@@ -120,8 +137,14 @@ public class LinkedListImpl implements LIST_Interface {
 
 	@Override
 	public double get(int index) {
-		// TODO Auto-generated method stub
-		return 0;
+		if (index > numElts || index < 0) {
+			return Double.NaN;
+		}
+		Node curr = headCell;
+		for (int i = 0; i < index; i++) {
+			curr = curr.next;
+		}
+		return curr.data;
 	}
 
 	@Override
