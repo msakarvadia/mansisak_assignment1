@@ -151,6 +151,7 @@ public class LinkedListImpl implements LIST_Interface {
 			curr = curr.next;
 		}
 		return curr.data;
+		
 	}
 
 	@Override
