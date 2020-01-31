@@ -72,7 +72,10 @@ public class LinkedListPlayground {
     L.insert(3.5,1);
     L.insert(3.67,2);
     
-    L.insort(5);
+    L.insort(1);
+    L.remove(3);
+    System.out.println("last cell "+L.getLast().getData());
+    
     //System.out.println(L.get(0));
     //System.out.println(L.get(1));
     //System.out.println(L.get(2));

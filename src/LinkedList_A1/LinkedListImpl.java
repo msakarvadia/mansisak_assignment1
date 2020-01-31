@@ -97,6 +97,10 @@ public class LinkedListImpl implements LIST_Interface {
 					if (inst.next != null) {
 						inst.next.prev = inst;
 					}
+					lastCell = headCell;
+					while (lastCell.next != null) {
+						lastCell = lastCell.next;
+					}
 					numElts++;
 					return true;
 				}
@@ -118,10 +122,12 @@ public class LinkedListImpl implements LIST_Interface {
 			headCell = headCell.next;
 			headCell.prev = null;
 		} else if (index + 1 == numElts) {
-			while (lastCell.next != null) {
-				lastCell = lastCell.next;
-			}
-			lastCell.prev = null;
+			lastCell.prev.next = null;
+			lastCell = lastCell.prev;
+			//while (lastCell.next != null) {
+			//	lastCell = lastCell.next;
+			//}
+			//lastCell.prev = null;
 		} else {
 			Node curr = headCell;
 			for (int i = 0; i < index; i++) {
