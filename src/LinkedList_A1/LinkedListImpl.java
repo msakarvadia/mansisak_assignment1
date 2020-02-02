@@ -82,7 +82,10 @@ public class LinkedListImpl implements LIST_Interface {
 	@Override
 	public boolean insort(double elt) {
 		// TODO Auto-generated method stub
-		if (headCell.data >= elt) {
+		if(this.isEmpty()) {
+			this.insert(elt, 0);
+		}
+		else if (headCell.data >= elt) {
 			this.insert(elt, 0);
 		}
 		else {

@@ -68,12 +68,18 @@ public class LinkedListPlayground {
   public static void test2(){
     // example test cases
     LinkedListImpl L= new LinkedListImpl();
-    L.insert(3.4,0);
+   /* L.insert(3.4,0);
     L.insert(3.5,1);
     L.insert(3.67,2);
     
     L.insort(1);
-    L.remove(3);
+    L.remove(3);*/
+    L.insort(14);
+    L.insort(21);
+    L.insort(5);
+    L.insort(17);
+    L.insort(67);
+    
     System.out.println("last cell "+L.getLast().getData());
     
     //System.out.println(L.get(0));
