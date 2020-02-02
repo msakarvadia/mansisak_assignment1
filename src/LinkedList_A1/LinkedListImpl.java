@@ -114,7 +114,7 @@ public class LinkedListImpl implements LIST_Interface {
 
 	@Override
 	public boolean remove(int index) {
-		if (index > numElts || index < 0) {
+		if (index >= numElts || index < 0) {
 			return false;
 		}
 		// TODO add condition for removing from end and from front
@@ -122,12 +122,8 @@ public class LinkedListImpl implements LIST_Interface {
 			headCell = headCell.next;
 			headCell.prev = null;
 		} else if (index + 1 == numElts) {
-			lastCell.prev.next = null;
-			lastCell = lastCell.prev;
-			//while (lastCell.next != null) {
-			//	lastCell = lastCell.next;
-			//}
-			//lastCell.prev = null;
+			lastCell =lastCell.prev;
+			lastCell.next = null;
 		} else {
 			Node curr = headCell;
 			for (int i = 0; i < index; i++) {
@@ -143,15 +139,19 @@ public class LinkedListImpl implements LIST_Interface {
 
 	@Override
 	public double get(int index) {
-		if (index > numElts || index < 0) {
+		if (index >= numElts || index < 0) {
 			return Double.NaN;
 		}
 		Node curr = headCell;
-		for (int i = 0; i < index; i++) {
+		int count =0;
+		while(curr != null) {
+			if(count == index) {
+				return curr.data;
+			}
+			count++;
 			curr = curr.next;
 		}
-		return curr.data;
-		
+		return 0;
 	}
 
 	@Override
