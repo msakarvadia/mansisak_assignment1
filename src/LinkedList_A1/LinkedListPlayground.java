@@ -16,7 +16,7 @@ public class LinkedListPlayground {
   public static void test1(){
     // example test cases
     LinkedListImpl L= new LinkedListImpl();
-    System.out.println("is empty: " + L.isEmpty());
+   /* System.out.println("is empty: " + L.isEmpty());
     printList(L);
     L.clear();
     System.out.println("is empty: " + L.isEmpty());
@@ -61,38 +61,72 @@ public class LinkedListPlayground {
     System.out.println("size: " + L.size());
     L.remove(2);
     printList(L);
-    System.out.println("end test 1: size: " +L.size());
+    System.out.println("end test 1: size: " +L.size());*/
     
   }
 
   public static void test2(){
     // example test cases
     LinkedListImpl L= new LinkedListImpl();
-   /* L.insert(3.4,0);
+    //System.out.println("last cell "+L.getLast().getData());
+    //System.out.println("first cell "+L.getRoot().getData());
+    System.out.println("size: "+ L.size());
+    printList(L);
+    L.insert(3.4,0);
+    System.out.println("last cell "+L.getLast().getData());
+    System.out.println("first cell "+L.getRoot().getData());
+    System.out.println("size: "+ L.size());
+    printList(L);
+    L.insort(1);
+    System.out.println("last cell "+L.getLast().getData());
+    System.out.println("first cell "+L.getRoot().getData());
+    System.out.println("size: "+ L.size());
+    printList(L);
     L.insert(3.5,1);
     L.insert(3.67,2);
-    
-    L.insort(1);
-    L.remove(3);*/
+    System.out.println("last cell "+L.getLast().getData());
+    System.out.println("first cell "+L.getRoot().getData());
+    System.out.println("size: "+ L.size());
+    printList(L);
+    L.insort(.5);
+    L.remove(3);
     L.insort(14);
     L.insort(21);
+    L.remove(0);
+    System.out.println("last cell "+L.getLast().getData());
+    System.out.println("first cell "+L.getRoot().getData());
+    System.out.println("size: "+ L.size());
+    printList(L);
+    L.remove(21);
+    L.insert(3,29);
+    L.insort(199);
+    System.out.println("last cell "+L.getLast().getData());
+    System.out.println("first cell "+L.getRoot().getData());
+    System.out.println("size: "+ L.size());
+    printList(L);
     L.insert(10, 1);
     L.remove(2);
     L.insort(8);
+    L.remove(5);
     L.insert(20,3);
-    L.insort(17);
-    L.insort(14);
-   
-    
     System.out.println("last cell "+L.getLast().getData());
-    
-    //System.out.println(L.get(0));
-    //System.out.println(L.get(1));
-    //System.out.println(L.get(2));
-   // System.out.println(L.get(3));
-    //L.remove(0);
+    System.out.println("first cell "+L.getRoot().getData());
     System.out.println("size: "+ L.size());
     printList(L);
+    L.remove(6);
+    L.insort(17);
+    L.insort(14);
+    System.out.println("last cell "+L.getLast().getData());
+    System.out.println("first cell "+L.getRoot().getData());
+    System.out.println("size: "+ L.size());
+    printList(L);
+    System.out.println(L.get(0));
+    System.out.println(L.get(1));
+    System.out.println(L.get(2));
+    System.out.println(L.get(3));
+    //L.remove(0);
+    //System.out.println("size: "+ L.size());
+    //printList(L);
   }
   
   public static void printList(LinkedListImpl L){ 
