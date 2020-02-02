@@ -49,13 +49,14 @@ public class LinkedListImpl implements LIST_Interface {
 			headCell = newNode;
 		} else if (index == numElts) {
 			Node newNode = new Node(elt);
-			Node lastCell = headCell;
+			lastCell = headCell;
 			newNode.next = null;
 			while (lastCell.next != null) {
 				lastCell = lastCell.next;
 			}
 			lastCell.next = newNode;
 			newNode.prev = lastCell;
+			lastCell = newNode;
 		} else {
 			Node curr = headCell;
 			for (int i = 0; i < index; i++) {
@@ -85,13 +86,13 @@ public class LinkedListImpl implements LIST_Interface {
 		if(this.isEmpty()) {
 			this.insert(elt, 0);
 		}
-		else if (headCell.data >= elt) {
+		else if (headCell.data > elt) {
 			this.insert(elt, 0);
 		}
 		else {
 			Node curr = headCell;
 			while (curr.next != null) {
-				if(curr.next.data >= elt && curr.data < elt) {
+				if(curr.next.data > elt && curr.data <= elt) {
 					Node inst = new Node(elt);
 					Node prev = curr;
 					inst.next = curr.next;
@@ -154,7 +155,7 @@ public class LinkedListImpl implements LIST_Interface {
 			count++;
 			curr = curr.next;
 		}
-		return 0;
+		return Double.NaN;
 	}
 
 	@Override

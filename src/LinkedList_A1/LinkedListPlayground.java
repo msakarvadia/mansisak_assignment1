@@ -76,9 +76,13 @@ public class LinkedListPlayground {
     L.remove(3);*/
     L.insort(14);
     L.insort(21);
-    L.insort(5);
+    L.insert(10, 1);
+    L.remove(2);
+    L.insort(8);
+    L.insert(20,3);
     L.insort(17);
-    L.insort(67);
+    L.insort(14);
+   
     
     System.out.println("last cell "+L.getLast().getData());
     
